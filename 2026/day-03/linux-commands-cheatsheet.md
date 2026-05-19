@@ -15,7 +15,6 @@
 | `df -h` | Display mounted filesystem disk usage |
 | `stat file` | Show detailed file metadata (size, inode, timestamps, permissions) |
 | `ln -s /path/to/target linkname` | Create a symbolic (soft) link |
-| `rsync -avz src/ dest/` | Sync files/dirs efficiently; `-a` archive, `-v` verbose, `-z` compress |
 | `tar -czvf archive.tar.gz dir/` | Create a gzipped tarball of a directory |
 | `tar -xzvf archive.tar.gz` | Extract a gzipped tarball |
 | `zip -r archive.zip dir/` | Zip a directory recursively |
@@ -36,8 +35,6 @@
 | `sed 's/old/new/g' file` | Replace all occurrences of "old" with "new" in output |
 | `sed -i 's/old/new/g' file` | In-place replacement (modifies the file directly) |
 | `cut -d':' -f1 /etc/passwd` | Cut field 1 using `:` as delimiter (e.g., list all usernames) |
-| `sort -k2 -n file` | Sort file numerically by the 2nd column |
-| `uniq -c` | Count and collapse duplicate adjacent lines (pipe after `sort`) |
 | `wc -l file` | Count lines in a file |
 | `diff file1 file2` | Show line-by-line differences between two files |
 | `cat file \| tr 'a-z' 'A-Z'` | Translate lowercase to uppercase |
@@ -173,20 +170,16 @@
 | Command | Usage |
 |---------|-------|
 | `history \| grep cmd` | Search command history for a previous command |
-| `Ctrl+R` | Reverse interactive search through history |
 | `!!` | Repeat the last command |
 | `!$` | Use the last argument of the previous command |
 | `alias ll='ls -lah'` | Create a shortcut alias (add to `~/.bashrc` to persist) |
 | `export VAR=value` | Set an environment variable for the current session |
 | `env` | List all environment variables |
-| `xargs -I {} cmd {}` | Build and execute commands from stdin input |
 | `tee file.txt` | Write stdin to both a file and stdout simultaneously |
-| `watch -n 2 command` | Re-run a command every 2 seconds and display output live |
 | `time command` | Measure how long a command takes to execute |
 | `strace -p PID` | Trace system calls made by a running process |
 | `lsof -p PID` | List open files (and sockets) used by a process |
 | `lsof -i :80` | Find what process is using port 80 |
-| `screen` / `tmux` | Multiplexer: persist sessions across SSH disconnects |
 
 ---
 
@@ -201,43 +194,6 @@
 | `gpg --encrypt -r user@email file` | Encrypt a file for a recipient by email |
 | `openssl rand -hex 32` | Generate a cryptographically secure random string |
 | `openssl s_client -connect host:443` | Inspect a remote TLS certificate |
-| `fail2ban-client status` | Check fail2ban status and banned IPs |
-| `auditctl -l` | List active Linux audit rules |
 | `chattr +i file` | Make a file immutable (not even root can delete it) |
 
 ---
-
-## 🧩 One-Liners & Handy Patterns
-
-```bash
-# Watch a log file live
-tail -f /var/log/syslog
-
-# Find and delete files older than 30 days
-find /tmp -type f -mtime +30 -delete
-
-# Count occurrences of each unique line
-sort file.txt | uniq -c | sort -rn
-
-# Show top 10 largest files in current directory (recursive)
-du -ah . | sort -rh | head -10
-
-# Monitor network bandwidth per interface
-watch -n 1 'cat /proc/net/dev'
-
-# Quickly serve current directory over HTTP (Python)
-python3 -m http.server 8080
-
-# Check open ports without nmap
-ss -tulnp | grep LISTEN
-
-# Decode a base64 string
-echo "SGVsbG8=" | base64 -d
-
-# Get your public IP
-curl -s https://ifconfig.me
-```
-
----
-
-*Last updated: 2025 · Linux kernel 6.x era*
