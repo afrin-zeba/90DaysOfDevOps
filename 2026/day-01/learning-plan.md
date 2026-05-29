@@ -22,7 +22,7 @@ Core Pillars of DevOpsCulture:
   (example: deploy a production-grade application on Kubernetes)
   1. Attain terraform certification post training 
   2. Deeply understand image creation (end-to-end CI/CD post training with context from my company code base)
-  3. 
+  3. Develop better coding skills in python 
 
 - Define **3 core DevOps skills** you want to build  
   1. Networking fundamentals + troubleshooting 
