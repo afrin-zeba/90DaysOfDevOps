@@ -15,7 +15,6 @@ done
 for i in {1..10} ; do 
     echo $i
 done
----
 
 ### Task 2: While Loop
 1. Create `countdown.sh` that:
@@ -30,7 +29,7 @@ while [ $num -gt -1 ] ; do
     ((num--))
 done
 echo "Done!"
----
+
 
 ### Task 3: Command-Line Arguments
 1. Create `greet.sh` that:
@@ -60,7 +59,7 @@ ubuntu@ip-172-31-46-159:~$ bash args_Demo.sh hello hi meow
 total no of arg entered are: 3
 all arguments entered are: hello hi meow
 script name is args_Demo.sh
----
+
 
 ### Task 4: Install Packages via Script
 1. Create `install_packages.sh` that:
@@ -84,7 +83,7 @@ for i in nginx curl wget; do
     fi
 done
 
----
+
 
 ### Task 5: Error Handling
 1. Create `safe_script.sh` that:
@@ -122,7 +121,7 @@ if [ "$EUID" -ne 0 ]; then
     echo "Please run this script as root."
     exit 1
 fi
----
+
 
 ## Hints
 - For loop: `for item in list; do ... done`
@@ -131,6 +130,5 @@ fi
 - Check root: `if [ "$EUID" -ne 0 ]; then echo "Run as root"; exit 1; fi`
 - Check package: `dpkg -s <pkg> &> /dev/null && echo "installed"`
 
----
 
 
